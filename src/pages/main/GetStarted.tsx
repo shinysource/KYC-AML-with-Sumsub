@@ -1,18 +1,19 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Grid } from '@mui/material'
 import { Link } from 'react-router-dom'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
-import useAuth from 'hooks/useAuth'
+import { useAuth } from 'providers/AuthProvider'
 import CustomButton from 'components/Button/CustomButton'
 import Footer from 'layout/Footer'
 import CustomCard from 'components/Card/CustomCard'
 
 const GetStarted = () => {
   const navigate = useNavigate()
-  const { isLogged } = useAuth()
+  const { user, loggedIn, logIn } = useAuth()
+  console.log(loggedIn)
 
   return (
     <div className="text-white bg-black">
@@ -49,9 +50,12 @@ const GetStarted = () => {
               title="Apply now"
               content="Apply to VU or log into an existing one."
               actionLabel="Sign up"
-              done={!!isLogged}
-              model={!!isLogged ? 'secondary' : 'primary'}
-              onClick={() => navigate('/registration')}
+              done={loggedIn}
+              model={loggedIn ? 'secondary' : 'primary'}
+              onClick={async () => {
+                logIn()
+                navigate('/registration')
+              }}
               learnArticle="/"
             />
           </Grid>
@@ -63,11 +67,13 @@ const GetStarted = () => {
               avatar="2"
               title="Verify your Identity"
               done={!!window.localStorage.getItem('KYC')}
-              disabled={!isLogged}
-              model={!isLogged ? 'disabled' : 'primary'}
+              disabled={!loggedIn}
+              model={!loggedIn ? 'disabled' : 'primary'}
               content="You’ll need your drivers license or passport with Sumsub."
               actionLabel="Verify Details"
-              onClick={() => navigate('/sumsub')}
+              onClick={() => {
+                navigate('/')
+              }}
               learnArticle="/"
             />
           </Grid>

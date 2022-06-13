@@ -10,11 +10,16 @@ export interface User {
 
 const useCurrentUser = () => {
   const [user, setUser] = useState<User | undefined>()
+  const [isLogged, setIsLogged] = useState<boolean>(false)
+
+  const logIn = () => {
+    setIsLogged(!isLogged)
+  }
 
   return {
     user,
-    isLogged: user?.id
-    // isLogged: 1
+    isLogged,
+    logIn
   }
 }
 

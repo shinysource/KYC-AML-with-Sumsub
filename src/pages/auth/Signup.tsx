@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Grid } from '@mui/material'
-import useAuth from 'hooks/useAuth'
+import useAuth from 'hooks/useCurrentUser'
 
 import FormInput from '../../components/Fields/FormInput'
 import FormCheck from '../../components/Fields/FormCheck'
@@ -23,6 +23,11 @@ const validationSchema = Yup.object().shape({
     )
     .max(10, 'number less than 10')
     .notRequired(),
+  password: Yup.string().required('Enter your password'),
+  password_conf: Yup.string().oneOf(
+    [Yup.ref('password'), null],
+    'Passwords must match'
+  ),
   acceptTerms: Yup.bool().oneOf([true], 'Accept the privacy terms to continue')
 })
 
@@ -31,6 +36,8 @@ interface RegisterForm {
   last_name: string
   email: string
   mobile: string | undefined
+  password: string
+  password_conf: string
   acceptTerms: boolean
 }
 
@@ -39,6 +46,8 @@ const initialValues: RegisterForm = {
   last_name: '',
   email: '',
   mobile: '',
+  password: '',
+  password_conf: '',
   acceptTerms: false
 }
 
@@ -52,7 +61,6 @@ const Signup = () => {
     validationSchema,
     onSubmit: (values, actions) => {
       formik.setFieldValue('acceptTerms', false)
-      formik.setFieldValue('acceptReceive', false)
       actions.resetForm()
       navigate('/getstarted')
     }
@@ -158,6 +166,33 @@ const Signup = () => {
             </Grid>
 
             <Grid item xs={12}>
+              <FormInput
+                type="password"
+                id="password"
+                name="password"
+                formik={formik}
+                handleChange={formik.handleChange}
+                className="font-inter text-base font-normal"
+                label="Password"
+                placeholder="Password"
+                isHint={true}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormInput
+                type="password"
+                id="password_conf"
+                name="password_conf"
+                formik={formik}
+                handleChange={formik.handleChange}
+                className="font-inter text-base font-normal"
+                label="Password confirm"
+                placeholder="Password confirm"
+                isHint={true}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
               <FormCheck
                 name="acceptTerms"
                 label={
@@ -168,23 +203,6 @@ const Signup = () => {
                         Sumsub
                       </Link>{' '}
                       and to receiving communications in relation to Sumsub.
-                    </p>
-                  </div>
-                }
-                formik={formik}
-                handleChange={formik.handleChange}
-                isHint={true}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormCheck
-                name="acceptReceive"
-                label={
-                  <div className=" text-sm text-grey">
-                    <p>
-                      I would like to receive communications from the Sumsub and
-                      Sumsub partners about other products and initiatives of
-                      the Sumsub and Sumsub partners.{' '}
                     </p>
                   </div>
                 }

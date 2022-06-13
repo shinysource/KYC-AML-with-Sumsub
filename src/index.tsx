@@ -4,13 +4,17 @@ import { BrowserRouter } from 'react-router-dom'
 import 'tailwindcss/tailwind.css'
 import App from 'App'
 
+import AuthProvider from 'providers/AuthProvider'
+
 import 'styles/tailwind.css'
 
 render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
   </StrictMode>,
   document.getElementById('root')
 )
