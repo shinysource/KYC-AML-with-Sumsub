@@ -80,7 +80,7 @@ const Signup = () => {
             <img
               src="/assets/logo/logo-default.png"
               alt="Venture Logo"
-              style={{ height: '75px' }}
+              style={{ height: '200px' }}
             ></img>
           </Link>
         </Grid>
