@@ -1,6 +1,6 @@
 import Button, { ButtonProps } from '@mui/material/Button'
 import { FormGroup } from '@mui/material'
-import { makeStyles } from '@mui/styles'
+import { makeStyles, createStyles } from '@mui/styles'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const useButtonStyles = (fontColor: string, size: string) =>
@@ -12,7 +12,7 @@ const useButtonStyles = (fontColor: string, size: string) =>
         borderRadius: '2px',
         color: '#fff',
         fontFamily: 'PODIUMSharp-49',
-        fontSize: '16px',
+        fontSize: '14px',
         fontWeight: 'bold',
         letterSpacing: '0.1em'
       },
@@ -25,21 +25,40 @@ const useButtonStyles = (fontColor: string, size: string) =>
     },
     secondary: {
       '&': {
+        backgroundImage:
+          'linear-gradient(85deg, #B996ED 0%, #B9C8FB 33%, #F7E9DA 67%, #C9B1E4 100%)',
         borderColor: '#fff',
         borderRadius: '2px',
-        color: '#fff',
+        color: '#000000 !important',
         fontFamily: 'PODIUMSharp-49',
-        fontSize: '16px',
+        fontSize: '14px',
         fontWeight: 'bold',
         letterSpacing: '0.1em'
       },
-      '&:hover': {}
+      '&:hover': {
+        boxShadow: '0px 5px 15px rgba(166, 95, 247, 0.4)'
+      }
+    },
+    disabled: {
+      '&': {
+        backgroundImage: 'linear-gradient(85deg, #d3d3d3 100%, #d3d3d3 100%)',
+        borderColor: '#d3d3d3',
+        borderRadius: '2px',
+        color: '#000000',
+        fontFamily: 'PODIUMSharp-49',
+        fontSize: '14px',
+        fontWeight: 'bold',
+        letterSpacing: '0.1em'
+      },
+      '&:hover': {
+        boxShadow: '0px 5px 15px rgba(166, 95, 247, 0.4)'
+      }
     },
     text: {
       '&': {
         color: fontColor,
         fontFamily: 'PODIUMSharp-49',
-        fontSize: '16px',
+        fontSize: '14px',
         fontWeight: 'bold',
         letterSpacing: '0.1em'
       },
@@ -71,7 +90,7 @@ const theme = createTheme({
 export type CustomButtonProps = ButtonProps<
   'button',
   {
-    model: 'primary' | 'secondary' | 'text'
+    model: 'primary' | 'secondary' | 'text' | 'disabled'
     label: string
     className?: string
     fontColor?: string
