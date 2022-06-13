@@ -1,8 +1,9 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Grid } from '@mui/material'
+import useAuth from 'hooks/useAuth'
 
 import FormInput from '../../components/Fields/FormInput'
 import FormCheck from '../../components/Fields/FormCheck'
@@ -42,6 +43,7 @@ const initialValues: RegisterForm = {
 }
 
 const Signup = () => {
+  const navigate = useNavigate()
   const formRef = useRef<HTMLFormElement>(null)
   const retURL = useMemo(() => `${window.location.origin}/thank-you`, [window])
 
@@ -51,8 +53,8 @@ const Signup = () => {
     onSubmit: (values, actions) => {
       formik.setFieldValue('acceptTerms', false)
       formik.setFieldValue('acceptReceive', false)
-      formRef.current?.submit()
       actions.resetForm()
+      navigate('/getstarted')
     }
   })
 
@@ -66,7 +68,13 @@ const Signup = () => {
         justifyContent="center"
       >
         <Grid item>
-          <img src="/assets/logo/logo-default.png" alt="AFL Mint Logo"></img>
+          <Link to="/">
+            <img
+              src="/assets/logo/logo-default.png"
+              alt="Venture Logo"
+              style={{ height: '75px' }}
+            ></img>
+          </Link>
         </Grid>
       </Grid>
 
@@ -188,6 +196,7 @@ const Signup = () => {
 
             <Grid item xs={12}>
               <CustomButton
+                style={{ fontSize: '16px' }}
                 type="button"
                 model="primary"
                 variant="contained"
