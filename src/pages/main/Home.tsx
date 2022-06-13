@@ -11,14 +11,27 @@ const Home = () => {
   return (
     <div className="text-white">
       <Grid container className="py-10 home-back">
-        <Grid item container justifyContent="center">
+        <Grid item container justifyContent="space-between" className="px-5">
           <Grid item>
             <Link to="/">
               <img
                 src="/assets/logo/logo-default.png"
                 alt="Venture University Logo"
-                style={{ height: '75px' }}
+                style={{ height: '200px' }}
               ></img>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link to="/getstarted">
+              <CustomButton
+                style={{ width: '13rem', fontSize: '1rem' }}
+                type="button"
+                model="primary"
+                variant="contained"
+                label="Investor Login"
+                className="w-36 uppercase"
+                endIcon={<ArrowForwardIosIcon sx={{ color: '#D3D3D3' }} />}
+              />
             </Link>
           </Grid>
         </Grid>
@@ -33,26 +46,29 @@ const Home = () => {
             <div className="text-animate-content-container">
               <ul className="text-animate-content-container-list">
                 <li className="hero-text text-animate-content-container-list-item uppercase mx-auto w-[180px] sm:w-[160px] lg:w-full">
-                  Venture University
+                  The Most Scalable
                 </li>
                 <li className="hero-text text-animate-content-container-list-item uppercase mx-auto w-[270px] sm:w-[240px] lg:w-full">
-                  Investor Accelerator
+                  Global Venture Fund
                 </li>
                 <li className="hero-text text-animate-content-container-list-item uppercase mx-auto w-[270px] sm:w-[240px] lg:w-full">
-                  Break Into The VC/PE Industry
+                  Consistent Superior Returns
                 </li>
                 <li className="hero-text text-animate-content-container-list-item uppercase mx-auto w-[270px] sm:w-[240px] lg:w-full">
-                  Launch Their Own Funds
+                  Powered by
                 </li>
                 <li className="hero-text text-animate-content-container-list-item uppercase mx-auto w-[350px] sm:w-[360px] lg:w-full">
-                  Advance Their Careers
+                  Unfair & Sustainable
                 </li>
               </ul>
             </div>
           </div>
-          <div className="summary-text pt-2">Venture Capital</div>
+          <div className="summary-text pt-2">
+            VU Operates At A Scale & Strength Greater Than A $1B+ Investment
+            Fund​
+          </div>
           <div className="py-2 md:py-4 lg:py-4">
-            <Link to="/getstarted">
+            <Link to="/registration">
               <CustomButton
                 style={{ width: '10rem', fontSize: '1.15rem' }}
                 type="button"
