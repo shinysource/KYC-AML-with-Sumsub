@@ -93,15 +93,17 @@ const Home = () => {
         </Grid>
         <Grid item xs={11} sm={8} lg={6} xl={4} pt={2}>
           <p className="paragraph-text">
-            Welcome to Venture University, Venture University's Investor
-            Accelerator Is Designed For Individuals Looking To Gain High Quality
-            Investment Experience In Order To Break Into The VC/PE Industry,
-            Launch Their Own Funds, & Advance Their Careers.
+            Join VU's Investor Syndicate or Invest In VU Venture Partners Fund
+            II - Invest on a deal-by-deal basis. Minimum investment is $5K per
+            company. Become an LP in VU's $100M venture capital fund, get
+            allocations in all portfolio companies, and have priority on
+            investing additional capital in specific companies. Minimum
+            investment of $500K.
           </p>
         </Grid>
         <Grid item container justifyContent="center" xs={12} pt={2}>
           <Grid item>
-            <Link to="/getstarted">
+            <Link to="/registration">
               <CustomButton
                 style={{ width: '10rem', fontSize: '1.15rem' }}
                 type="button"
