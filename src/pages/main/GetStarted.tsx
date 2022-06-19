@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { Grid } from '@mui/material'
 import { Link } from 'react-router-dom'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import SumsubWebSdk from '@sumsub/websdk-react'
+
+import { User, AuthState, AuthResult, AccessToken } from 'types/types'
+import api from '../../service/api'
 
 import { useAuth } from 'providers/AuthProvider'
 import CustomButton from 'components/Button/CustomButton'
@@ -11,6 +15,25 @@ import Footer from 'layout/Footer'
 import CustomCard from 'components/Card/CustomCard'
 
 const GetStarted = () => {
+  useEffect(() => {
+    const createAccessToken = async () => {
+      const accessToken = await api.createToken({ externalUserId: 'abcd' })
+      console.log('accessToken from backend: ' + accessToken.data.token)
+    }
+    createAccessToken()
+  }, [])
+
+  const handler = () => Promise.resolve()
+  const config = {
+    lang: 'en'
+  }
+  const options = { addViewportTag: false, adaptIframeHeight: true }
+  const messageHandler = (type: string, payload: any) => {
+    console.log(type, payload)
+  }
+
+  const errorHandler = () => console.log('onError')
+
   const navigate = useNavigate()
   const { user, loggedIn, logIn } = useAuth()
   console.log(loggedIn)
@@ -76,6 +99,16 @@ const GetStarted = () => {
               }}
               learnArticle="/"
             />
+
+            {/* <SumsubWebSdk
+              testEnv={true}
+              accessToken={accessToken.data}
+              expirationHandler={handler}
+              config={config}
+              options={options}
+              onMessage={messageHandler}
+              onError={errorHandler}
+            /> */}
           </Grid>
         </Grid>
       </Grid>
