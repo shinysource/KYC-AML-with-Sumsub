@@ -1,4 +1,10 @@
-import { useState, useMemo, useEffect } from 'react'
+import {
+  useState,
+  useMemo,
+  useEffect,
+  FormEvent,
+  FormEventHandler
+} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -77,6 +83,11 @@ const Signup = () => {
     }
   })
 
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    formik.handleSubmit()
+  }
+
   return (
     <div className="py-9 signup-back">
       <Grid
@@ -99,7 +110,11 @@ const Signup = () => {
 
       <Grid item container justifyContent="center" alignItems="center">
         {!accessSDKToken && (
-          <form method="POST" className="flex justify-center mt-20">
+          <form
+            method="POST"
+            onSubmit={onSubmit}
+            className="flex justify-center mt-20"
+          >
             <Grid
               item
               className="lg:!max-w-[1800px]"
@@ -140,13 +155,10 @@ const Signup = () => {
               <Grid item xs={12}>
                 <CustomButton
                   style={{ fontSize: '16px' }}
-                  type="button"
+                  type="submit"
                   model="primary"
                   variant="contained"
                   label="verify your identity"
-                  onClick={() => {
-                    formik.handleSubmit()
-                  }}
                 />
               </Grid>
             </Grid>
