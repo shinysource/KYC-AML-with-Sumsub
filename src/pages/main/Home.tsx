@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="text-white">
       <Grid container className="py-10 home-back">
-        <Grid item container justifyContent="space-between" className="px-5">
+        <Grid item container justifyContent="center" className="px-5">
           <Grid item>
             <Link to="/">
               <img
@@ -19,19 +19,6 @@ const Home = () => {
                 alt="Venture University Logo"
                 style={{ height: '200px' }}
               ></img>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to="/getstarted">
-              <CustomButton
-                style={{ width: '13rem', fontSize: '1rem' }}
-                type="button"
-                model="primary"
-                variant="contained"
-                label="Investor Login"
-                className="w-36 uppercase"
-                endIcon={<ArrowForwardIosIcon sx={{ color: '#D3D3D3' }} />}
-              />
             </Link>
           </Grid>
         </Grid>
@@ -68,13 +55,13 @@ const Home = () => {
             Fund​
           </div>
           <div className="py-2 md:py-4 lg:py-4">
-            <Link to="/registration">
+            <Link to="/verify">
               <CustomButton
-                style={{ width: '10rem', fontSize: '1.15rem' }}
+                style={{ width: '18rem', fontSize: '1.15rem' }}
                 type="button"
                 model="primary"
                 variant="contained"
-                label="Apply now"
+                label="Verify your identity"
                 className="w-36 uppercase"
                 endIcon={<ArrowForwardIosIcon sx={{ color: '#D3D3D3' }} />}
               />
@@ -103,7 +90,7 @@ const Home = () => {
         </Grid>
         <Grid item container justifyContent="center" xs={12} pt={2}>
           <Grid item>
-            <Link to="/registration">
+            <Link to="/verify">
               <CustomButton
                 style={{ width: '10rem', fontSize: '1.15rem' }}
                 type="button"
