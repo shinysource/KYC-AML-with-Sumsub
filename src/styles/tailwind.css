@@ -22,7 +22,7 @@ body * {
 }
 
 .signup-back {
-  @apply min-h-screen bg-no-repeat bg-cover bg-center overflow-auto bg-black1 bg-[url('/assets/Image/Sign-back-dark.jpg')];
+  @apply min-h-screen max-h-screen bg-no-repeat bg-cover bg-center overflow-auto bg-black1 bg-[url('/assets/Image/Sign-back-dark.jpg')];
 }
 
 .home-back {
