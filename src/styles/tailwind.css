@@ -69,6 +69,10 @@ body * {
   @apply font-normal text-xl leading-7 lg:text-lg lg:leading-8;
 }
 
+.modal-title {
+  @apply uppercase font-podium49 font-normal text-[32px] leading-8;
+}
+
 .text-animate-content {
   overflow: hidden;
 }
