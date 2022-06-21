@@ -2,7 +2,7 @@ import axios from 'axios'
 import { User, AuthState, AuthResult, AccessToken } from 'types/types'
 
 const instance = axios.create({
-  baseURL: 'https://dynamic-sundae-84570b.netlify.app/.netlify/functions/api/',
+  baseURL: 'https://vufund.herokuapp.com/api/',
   timeout: 30000
 })
 
