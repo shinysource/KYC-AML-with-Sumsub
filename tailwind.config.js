@@ -24,7 +24,9 @@ module.exports = {
         grey3: '#D3D3D3',
         light: '#8E8E93',
         white: '#ffffff',
-        blue3: '#73AAFC'
+        blue3: '#73AAFC',
+        yellow: 'rgb(255, 235, 98)',
+        blue: 'rgb(88, 192, 208)'
       }
     }
   },
