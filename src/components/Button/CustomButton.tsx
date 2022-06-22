@@ -7,8 +7,7 @@ const useButtonStyles = (fontColor: string, size: string) =>
   makeStyles({
     primary: {
       '&': {
-        backgroundImage:
-          'linear-gradient(264.12deg, #7381FC 9.33%, #086BDF 90.67%)',
+        backgroundColor: 'rgb(88, 192, 208)',
         borderRadius: '2px',
         color: '#fff',
         fontFamily: 'PODIUMSharp-49',
@@ -17,10 +16,10 @@ const useButtonStyles = (fontColor: string, size: string) =>
         letterSpacing: '0.1em'
       },
       '&:hover': {
-        boxShadow: '0px 5px 15px rgba(40, 114, 232, 0.4)'
+        boxShadow: '0px 5px 15px rgba(88, 114, 232, 0.4)'
       },
       '&:active': {
-        background: 'linear-gradient(264.12deg, #7381FC 9.33%, #086BDF 90.67%)'
+        background: 'rgb(88, 192, 208)'
       }
     },
     secondary: {
