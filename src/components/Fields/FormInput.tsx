@@ -9,18 +9,13 @@ import { ChangeEvent } from 'react'
 const useStyles = makeStyles({
   root: {
     '&': {
-      backgroundColor: '#1A1A1A'
+      backgroundColor: 'white'
     },
     '&:hover': {
-      backgroundColor: '#1A1A1A'
+      backgroundColor: '#white'
     },
     '&:focus-within': {
-      backgroundColor: '#1A1A1A'
-    }
-  },
-  input: {
-    '&:-webkit-autofill': {
-      WebkitBoxShadow: '0 0 0 1000px #3c3f43 inset'
+      backgroundColor: '#white'
     }
   },
   label: {
@@ -33,7 +28,7 @@ const useStyles = makeStyles({
 
 const theme = createTheme({
   palette: {
-    mode: 'dark'
+    mode: 'light'
   }
 })
 
@@ -86,10 +81,9 @@ const FormInput = ({
                       <ErrorIcon sx={{ color: '#E41E31' }}></ErrorIcon>
                     </InputAdornment>
                   ),
-                  className: classes.root,
-                  classes: { input: classes.input }
+                  className: classes.root
                 }
-              : { className: classes.root, classes: { input: classes.input } }
+              : { className: classes.root }
           }
           FormHelperTextProps={{ className: classes.helper }}
         />
