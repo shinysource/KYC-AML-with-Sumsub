@@ -22,15 +22,15 @@ body * {
 }
 
 .signup-back {
-  @apply min-h-screen max-h-screen bg-no-repeat bg-cover bg-center overflow-auto bg-black1 bg-[url('/assets/Image/Sign-back-dark.jpg')];
+  @apply min-h-screen max-h-screen bg-no-repeat bg-cover bg-center overflow-auto bg-white;
 }
 
 .home-back {
-  @apply min-h-screen bg-no-repeat bg-cover bg-center overflow-auto bg-black2 bg-[url('/assets/Image/home-back.jpg')];
+  @apply min-h-screen bg-no-repeat bg-cover bg-center overflow-auto bg-yellow;
 }
 
 .hero-text {
-  @apply font-podium96 font-normal text-4xl leading-[36px] lg:font-medium lg:text-5xl lg:leading-[48px] xl:text-7xl xl:leading-[72px];
+  @apply font-podium96 font-normal text-4xl leading-[36px] lg:font-medium lg:text-5xl lg:leading-[48px];
 }
 
 .summary-text {
