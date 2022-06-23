@@ -28,6 +28,7 @@ const initialValues: RegisterForm = {
 }
 
 const Signup = () => {
+  console.log()
   const [accessSDKToken, setAccessSDKToken] = useState<string>('')
   const [applicantEmail, setApplicantEmail] = useState<string>('')
   const [applicantPhone, setApplicantPhone] = useState<string>('')
