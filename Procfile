@@ -1,2 +1,2 @@
 web: yarn dev
-config: YARN_PRODUCTION=false
+config: set YARN_PRODUCTION=false
