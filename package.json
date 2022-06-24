@@ -13,7 +13,7 @@
     "email": "joaopaulomoraes@outlook.com"
   },
   "scripts": {
-    "dev": "vite --port $PORT",
+    "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "jest",
